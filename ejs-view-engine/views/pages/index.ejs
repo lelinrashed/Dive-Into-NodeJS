@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs', {pageTitle: 'Home page'}) %>
+
+<%- include('../partials/nav.ejs') %>
+
+
+<h1><%= title %> </h1>
+<h3><%= new Date().toString() %></h3>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum dicta suscipit rem consequatur, iusto temporibus,
+    ab saepe cum amet optio neque asperiores voluptas, quia repellat dolorem delectus doloremque velit! Eligendi.
+</p>
+
+<% if (post.published) { %>
+<h1>Title: <%= post.title %></h1>
+<% } else { %>
+<p>Post is not yet published.</p>
+<% } %>
+
+<ul>
+    <% if (posts.length > 0) { %>
+    <% for (let p of posts) { %>
+    <li>
+        <%= p.title %> By <%= p.author %>
+    </li>
+    <% } %>
+    <% }else { %>
+    <h3>O posts</h3>
+    <% } %>
+</ul>
+
+<%- include('../partials/footer.ejs') %>
