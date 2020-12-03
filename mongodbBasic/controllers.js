@@ -99,20 +99,20 @@ exports.createContact = (req, res) => {
     }
 }
 
-exports.updateContact = (req, res) => {
-    let { id } = req.params
-    let { name, email, phone } = req.body
+// exports.updateContact = (req, res) => {
+//     let { id } = req.params
+//     let { name, email, phone } = req.body
 
-    Contact.findOneAndUpdate({ _id: id }, { $set: { name, email, phone } }, { new: true })
-        .then((data) => {
-            res.json(data)
-        }).catch((err) => {
-            console.log(err);
-            res.json({
-                message: 'Error Occurred'
-            })
-        })
-}
+//     Contact.findOneAndUpdate({ _id: id }, { $set: { name, email, phone } }, { new: true })
+//         .then((data) => {
+//             res.json(data)
+//         }).catch((err) => {
+//             console.log(err);
+//             res.json({
+//                 message: 'Error Occurred'
+//             })
+//         })
+// }
 
 exports.deleteContact = (req, res) => {
     let { id } = req.params
