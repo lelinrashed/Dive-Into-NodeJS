@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const router = require('./routes')
 
 const app = express()
+app.set('view engine', 'ejs')
 app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -18,10 +19,10 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 8080
 
 mongoose.
-    connect(`mongodb://localhost/basicmongodb`, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-        app.listen(PORT, () => {
-            console.log(`Server running at port ${PORT}`);
-        })
-    }).catch((e) => {
-        console.log(e);
+connect(`mongodb://localhost/basicmongodb`, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server running at port ${PORT}`);
     })
+}).catch((e) => {
+    console.log(e);
+})
