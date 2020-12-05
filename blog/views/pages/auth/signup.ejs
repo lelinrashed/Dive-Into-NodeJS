@@ -9,19 +9,38 @@
                 <form action="/auth/signup" method="POST">
                     <div class="form-group">
                         <label for="username">Enter your username (Must be unique)</label>
-                        <input type="text" name="username" id="username" class="form-control">
+                        <input type="text" name="username" id="username"
+                            value="<%= value.username ? value.username : '' %>"
+                            class="form-control <%= error.username ? 'is-invalid': '' %> ">
+                        <div class="invalid-feedback">
+                            <%= error.username && error.username %>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Enter your valid email</label>
-                        <input type="email" name="email" id="email" class="form-control">
+                        <input type="email" name="email" id="email" value="<%= value.email ? value.email : '' %>"
+                            class="form-control <%= error.email ? 'is-invalid': '' %>">
+                        <div class="invalid-feedback">
+                            <%= error.email && error.email %>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Enter your password</label>
-                        <input type="password" name="password" id="password" class="form-control">
+                        <input type="password" name="password" id="password"
+                            value="<%= value.password ? value.password : '' %>"
+                            class="form-control <%= error.password ? 'is-invalid': '' %>">
+                        <div class="invalid-feedback">
+                            <%= error.password && error.password %>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="confirmpassword">Confirm your password</label>
-                        <input type="password" name="confirmpassword" id="confirmpassword" class="form-control">
+                        <input type="password" name="confirmpassword" id="confirmpassword"
+                            value="<%= value.confirmpassword ? value.confirmpassword : '' %>"
+                            class="form-control <%= error.confirmpassword ? 'is-invalid': '' %>">
+                        <div class="invalid-feedback">
+                            <%= error.confirmpassword && error.confirmpassword %>
+                        </div>
                     </div>
                     <input type="submit" value="Sign Up" class="btn btn-primary">
                 </form>

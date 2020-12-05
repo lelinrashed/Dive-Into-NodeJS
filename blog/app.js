@@ -20,8 +20,10 @@ const middleware = [
 app.use(middleware)
 
 // Playground routers
-const validatorRoutes = require('./playground/validator')
-app.use('/playground', validatorRoutes)
+// const validatorRoutes = require('./playground/validator')
+// app.use('/playground', validatorRoutes)
+
+
 
 
 app.use('/auth', authRoutes)
@@ -42,3 +44,4 @@ mongoose.
     }).catch((e) => {
         return console.log(e);
     })
+    
